@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://database:5432/coderecipe_dev
+    username: "{cipher}e8881b08491bf987070d0089e521c790b4b555eacae08816b3b4ef3862a08c70"
+    password: "{cipher}0a248e5103eb152fdb479bb2b06c2fe584346728697c98d02a3ef0777bb38416"
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka

@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: global global code recipe global filters global global
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: expense
+          uri: lb://EXPENSE-SERVICE
+          predicates:
+            - Path=/api/expense/v1/**
+          filters:
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: logging logging code recipe logging filters logging logging
+                preLogger: true
+                postLogger: true
+  output:
+    ansi:
+      enabled: always
