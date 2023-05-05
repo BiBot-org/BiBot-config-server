@@ -1,0 +1,25 @@
+server:
+  port: 0
+
+spring:
+  datasource:
+    validationQuery: SELECT 1
+    testWhileIdle: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  sql:
+    init:
+      platform: postgres
+  output:
+    ansi:
+      enabled: always
+## fetch-registry : Eureka
+## service-url defaultZone :
+greeting:
+  message: hi
